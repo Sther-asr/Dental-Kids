@@ -1,589 +1,494 @@
-*{ margin: 0; padding: 0; font-family: 'Open Sans'; box-sizing: border-box; scroll-behavior: smooth;}
 @font-face {
     font-family: KBbubblegum;
-    src: url(../Fonts/KBbubblegum.ttf) format(truetype);
+    font-style:normal;
+	font-weight:bold;
+    src: url(../Fonts/KBbubblegum.ttf);
 }
+*{ 
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
+}
+body{
+    font-size: 14px;
+    overflow-x: hidden;
+}
+h1, h1 span{
+    font-family: KBbubblegum, sans-serif; 
+    text-align: center;
+}
+.font{
+    font-family: KBbubblegum, sans-serif;
+}
+.pink{
+    color: #CC2E78;
+}
+.yellow{ 
+    color: #FBED21; 
+    display: inline-flex; 
+    flex-direction: column; 
+    align-items:flex-start;
+}
+.bold{
+    font-weight: bold;
+}
+/*Iconos*/
 img[alt$=white-icon]{height: 1.2em;}
-img[alt$=pink-icon]{height: 30%;}
 img[alt^=linea]{height: 0.6em;}
-.font{font-family: KBbubblegum;}
-.pink{color: #CC2E78;}
-html{font-size: 14px;}
+img[alt$=pink-icon]{height: 1.5em}
 
+:root{
+    --margin-h1: 65%; /*margen para llevar el título hacia la izquierda*/
+    --exclamacion: 0.9em; /*exclamación del título*/
+    --wavy: 0.3em; /*wavy amarillo del título*/
 
+    /*Font Sizes*/
+    --fs-xl: 2rem;
+    --fs-700: 1.8rem;
+    --fs-600: 1.4rem;
+    --fs-500: .85rem;
+    --fs-400: .7rem;
+
+    /* Colors */
+    --pink: #CC2E78;
+    --pink-background: #CD64A9;
+    --yellow: #FBED21;
+    
+}
 
 
 
 /* NAVEGACIÓN-------------------NAVEGACIÓN */
-.navegacion{
-    background-color: white;
-    height: 7em;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 30px;
-    position: fixed;
-    z-index: 1;
+.nav{
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-}
-.nav1, .nav2{
+    z-index: 999;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 160%;
-    font-weight: 600;
-    margin: 0 3em;
+    padding: 0 min(7em, 9%);
+    width: 100%;
+    height: 6rem;
 }
-.nav1{width: 20%;}
-.nav2{
+.logo{
+    width: 30%;
+}
+.nav-ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     list-style: none;
     font-weight: bold;
-    font-size: 170%;
-    width: 40%;
+    /* width: max(50%, 250px); */
+    width: 70%;
+    font-size: calc(1vw + 0.5em);
+    gap: 1.5em;
 }
-.nav-item{color: #1BB2CB;text-decoration: none;}
-.contacto{
-    border: 4px solid #1BB2CB;
+.nav-item{
+    color: #1BB2CB; 
+    text-decoration: none;
+}
+.blue-btn /*btn Contáctanos*/{
+    display: inline-block;
     border-radius: 50px;
-    padding: 20px 20px;
+    border: .2rem solid #1BB2CB;
+    padding: 0.9em;
+    position: relative;
+    transition: color 0.3s;
 }
-img[alt=logo-png]{height: 4em;}
+.blue-btn::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 0%;
+    height: 100%;
+    border-radius: 50px;
+    inset: 0;
+    margin: auto 0;
+    transition: linear 0.4s;
+}
+.blue-btn:hover::before{
+    width: 100%;
+    background: #1BB2CB;
+}
+.blue-btn:hover{
+    color: white;
+}
+img[alt=logo-png]{
+    height: 3em;
+}
+[alt="hamburguesita"]{
+    height: 1.2em;
+}
+[src*="close-hamburguesa"]{
+    height: 2em;
+}
+.toggle{
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+@media (max-width: 38em){ /*Query para que cuando el menú sea menor que 38em se active el menú de hamburguesa*/
+    .nav-ul{ 
+        font-weight: 500;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        touch-action: none;
 
+        position: fixed;
+        inset: 0 0 0 45%;
 
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2.5em;
 
+        padding: min(30vh, 10rem) 3em;
+
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+    }
+    .nav-ul[data-visible="true"]{
+        transform: translateX(0%);
+    }
+    .toggle{
+        display: block;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 9999;
+    }
+}
 
 /* BARRA INICIAL----------------BARRA INICIAL */
-.inicio{
-    height: 5em;
+.barra{
+    height: 3.5rem;
     background-color: #CC2E78;
-    overflow: hidden;
     display: flex;
     align-content: center;
     justify-content: space-between;
-    padding: 0 30px;
-    margin-top: 7em;
+    padding: 0 min(7em, 9%);
 }
-.inicio1, .inicio2{
+.barra div{
     display: flex;
-    width: 20%;
-    font-size: 160%;
+    width: 50%;
+    font-size: calc(1vw + 0.5em);
     color: white;
     font-weight: 600;
     align-items: center;
-    margin: 0 3em;
-    justify-content: space-around;
+    gap: 1rem;
 }
-.p1,.p2{display: inline;}
-
-
-
+.barra-email{
+    justify-content: flex-start;
+}
+.barra-rrss{
+    justify-content: flex-end;
+}
+.barra p{display: inline;}
 
 
 /* HEADER------------HEADER------------HEADER------------HEADER */
 .header{
     background: url(../Img/cute-little-girl.jpg);
+    background-color: hsla(0, 0%, 0%, 0.25);
+    background-blend-mode:multiply;
     background-repeat: no-repeat;
-    height: 50em;
+    max-width: 100%;
     background-size: 100%;
+    padding: max(30px, 8%) min(7em, 9%);
+}
+.title{
+    position: relative;
+    margin-right: var(--margin-h1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0 30px;
+    align-items: flex-end;
 }
-.header1, .header2{
-    width: 36%;
-    font-size: 140%;
-    font-weight: 500;
-    margin: 0 3em;
-}
-img[alt=exclamacion-icon]{
+.title h1{
     position: relative;
-    left: 12px;
-    top: 30px;
-    height: 1.8em;
+    font-size: var(--fs-xl);
 }
-.principal{
-    font-size: 400%;
+.title img:first-child{
+    position: relative;
+    height: var(--exclamacion);
+    left: 12px;
+    top: 5px;
+}
+.title img:last-child{
+    position: relative;
+    top: 0;
+    left: 0;
+    height:var(--wavy);
+}
+
+
+/* SECCIONES DE CONTENIDO ---- SECCIONES DE CONTENIDO */
+h2{
+    position: relative;
+    font-weight: lighter; 
+    display: inline-flex; 
+    flex-direction: column; 
+    align-items: center;
+    font-size: var(--fs-600);
     text-align: center;
 }
-.yellow{ color: #FBED21}
-img[alt*=encabezado]{height: 1.2em;}
-
-
-
-
+h2 img{
+    position: relative;
+    bottom: -5px;
+    left: 0;
+}
 
 /* SERVICIOS------------SERVICIOS-----------SERVICIOS */
-.servicios{
+#servicios{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: hidden;
-    height: 58.5em;
-    padding: 0 30px;
+    padding: max(30px, 6%) min(7em, 9%);
 }
-.servicios-header, .servicios-articles{display: flex; margin: 0 3em; }
-.servicios-header{
-     flex-direction: column;
-     align-items: center;
-     font-size: 2.5em;
+#servicios h2{
+    color: var(--pink);
+    margin-bottom: max(30px, 6%); /*el mismo que el padding-top de #servicios*/
 }
-.servicios-header h2{ font-weight: lighter; color: #CC2E78;}
-.servicios-articles img[alt^=servicio]{height: 5em; margin-bottom: 1em;}
 .servicios-articles{
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-content: flex-end;
-    height: 42em;
-    
+    align-content: center;
+    gap: 1.5rem;
 }
 .article{
     text-align: center;
-    height: 48%;
-    width: 32%;
-    font-size: 120%;
+    width: 100%;
+    max-width: 250px;
 }
-.article h3{color: #1BB2CB;
-     line-height: 150%;
-      margin-bottom: 0.5em;}
-.article p{font-weight: lighter;}
-
-
+.article h3{color: #1BB2CB; 
+    font-size: var(--fs-500);
+    line-height: 1.3;
+    margin: 0.5em 0;
+}
+.article p{
+    font-weight: lighter;
+    font-size: var(--fs-400);
+}
+img[alt^=servicio]{height: 3em;}
 
 
 /* ESPECIALISTAS----------ESPECIALISTAS------ESPECIALISTAS */
-.especialistas{
-    height: 140vh;
-    background-image: url("../Img/happy-little-best-friends-celebrating-2.jpg");
+#especialistas{
+    margin-bottom:  max(30px, 8%);
+    text-align: center;
+}
+#especialistas header{
+    background-image: url(../Img/happy-little-best-friends-celebrating-2.jpg);
+    background-color: hsla(0, 0%, 0%, 0.25);
+    background-blend-mode:darken;
     background-repeat: no-repeat;
+    max-width: 100%;
     background-size: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 0 30px;
+    padding-top: max(30px, 4%);
+    padding-bottom: max(68px, 18%);
 }
-.esp1{
-    color: #FBED21;
-    font-size: 2.5em;
-    text-align: center;
-    height: 10em;
-    text-align: center;
+#especialistas h2{
+    color: var(--yellow);
 }
-.esp1 h2{font-weight: lighter;}
-.esp2{
+.profesionales{
+    padding: 0 min(7em, 9%);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    height: 50%;
-    color: #CC2E78;
+    color: var(--pink);
     text-align: center;
+    gap: 1rem;
+    position: relative;
+    top: -65px;
 }
-.profesionales img{border-radius: 100%; height: 55%;}
-.profesionales h3{font-size: 200%; }
-.profesionales p{font-style: italic; font-size: 150%;}
-
-
-
+.profesionales img{
+    width: 100%;
+    max-width: 140px;
+    height: 140px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 100%;
+}
+.profesionales h3{
+    font-size: var(--fs-500);
+}
+.profesionales p{
+    font-style: italic; 
+    font-size: var(--fs-400)
+}
 
 
 /* CONTACTO----------------------CONTACTO-----------------CONTACTO */
-.contactanos{
+#contacto{
     background-image: url(../Img/teenage-girl-cheerful-happy-with-brunette-short-hair-pointing-her-finger-left-copy-spac_2.jpg);
     background-repeat: no-repeat;
-    background-color: #cd64a9;
+    background-color: var(--pink-background);
     background-size: 100%;
-    height: 78vh;
-    padding: 0 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    padding: max(30px, 4%) min(7em, 9%) max(30px, 8%);
+    text-align: center;
 }
-.contacto1{font-size: 2.5em;text-align: center;width: 30%;}
-.contacto1 h2{color: white; font-weight: 500;}
-.contacto2{
+#contacto h2{
+    color: white;
+    margin-bottom: max(30px, 6%);
+     
+}
+form{
+    margin: 0 auto;
+    width: 85%;
+    max-width: 600px;
+    color: white;
+}
+form div{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
-    width: 50%;
-    height: 60%;
 }
-.formulario{
-    height: 20%; 
-    width: 100%; 
-    font-size: 200%;
-    outline: none; 
+form div > input{
+    width: 46%;
+}
+input{
+    background: none;
     border-style: none; 
     border-bottom: 2px solid white;
+    outline: none; 
     color: white; 
-    background: none;
+    font-size: var(--fs-500);
+    width: 100%; 
+    height: 2em;
+    margin-bottom: 1.5em;
+    padding-left: .3rem;
 }
-.nombre,.apellido{width: 46%; }
-.enviar{width: 30%; margin: auto; border: 4px solid white; border-radius: 50px;}
-
-
-
+form input:nth-child(4){ /*btn Enviar*/
+    width: 30%;
+    min-width: 100px;
+    height: 3em;
+    margin: 1.5em auto 0;
+    border-radius: 50px;
+    border: .2rem solid white;
+}
 
 
 /* FOOTER---------------FOOTER-------------FOOTER */
-.piedepagina{height: 70vh;}
-.pie1{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto 12em;
-    height: 75%;
-    width: 35%;
-}
-.pie2{
-    background: #92D4D7;
-    height: 25%;
-    padding: 0 30px;
+footer{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    text-align: center;
-    font-weight: lighter;
-    font-size: 140%;
-    letter-spacing: 2px;
-    padding-bottom: 2em;
 }
-.info1{
-    font-size: 400%; 
+footer > div:first-child{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    padding: max(30px, 6%) min(7em, 9%) 30px;
+}
+.rrss{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rrss img[alt="logo-footer"]{height: 5em;}
+.rrss > p{
+    font-size: var(--fs-700);
     color: #1BB2CB;
-    height: 80%;
+}
+.rrss--info{
+    color: #CC2E78;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: .3em;
+    margin-top: 1em;
 }
-.info1 img[alt="logo-footer"]{height: 35%; width: 100%; }
-.info2{
-    color: #CC2E78;
-    height: 20%;
-    width: 100%;
+.rrss--info-email, .rrss--info-follow{
     display: flex;
     justify-content: space-between;
+    gap: .5em;
 }
-.info2-email, .info2-follow{display: flex; justify-content: space-around;}
-.info2-email{width: 55%;font-size: 160%;}
-.info2-follow{width: 40%; font-size: 160%;}
+.rrss--info-follow{
+    flex-direction: row-reverse;
+}
 [alt="imagen-footer"]{
-    width: 32%;
     position: relative;
-    height: 300%;
-    bottom: 40%;
-    left: 60%;
+    height: 12em;
+    bottom: -35px;
+    right: -60px;
+}
+.copyright{
+    background: #92D4D7;
+    padding: max(30px, 3%) 0;
+    text-align: center;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    font-size: var(--fs-400);
 }
 
 
 
+/* MEDIA SCREEN ---------------- MEDIA SCREEN --------------- MEDIA SCREEEN */
 
-
-/* MEDIA SCREEN ---------------- MEDIA SCREEN --------------- MEDIA SCREEEN ------------ MEDIA SCREEEN */
-
-@media screen and (max-width: 1700px){
-    .header{height: 46em;}
-    .header1, .header2{font-size: 21px;}
+@media screen and (min-width: 1280px){
+    .article{
+        max-width: 345px;
+    }
+    .profesionales img{
+        max-width: 190px;
+        height: 190px;
+    }
 }
-@media screen and (max-width: 1500px){
-    .header{height: 40em;}
-    .header1, .header2{font-size: 18px;}
-    .inicio1, .inicio2{width: 25%;}
-    .nav2{width: 45%;}
-    .servicios-articles img[alt^=servicio]{height: 4em;}
+@media screen and (min-width: 1000px){
+    :root{
+        --fs-xl: 3.2rem;
+        --fs-700: 2.5rem;
+        --fs-600: 2rem;
+        --fs-500: .95rem;
+        --fs-400: .8rem;
+    }
+    .profesionales img{
+        max-width: 170px;
+        height: 170px;
+    }
+}
+@media screen and (min-width: 750px){
+    :root{
+        --fs-xl: 2.5rem;
+    }
+    .rrss--info{
+        flex-direction: row;
+        margin-top: 0;
+        gap: 1em;
+    }
+    .rrss--info-follow{
+        flex-direction: row;
+    }
+}
+@media screen and (max-width: 600px){
+    :root{
+        --fs-600: 1.2rem;
+        --margin-h1: 0; /* se quita el margen para centrar el título*/
+    }
+    .header{
+        background-color: hsla(0, 0%, 0%, 0.4);
+    }
+    .profesionales{
+        flex-direction: column;
+        top: -30px;
+    }
+    .profesionales img{
+        max-width: 120px;
+        height: 120px;
+    }
+    #contacto{
+        background-image: none;
+    }
+    form{
+        width: 100%;
+    }
     [alt="imagen-footer"]{
-        bottom: 30px;
-        left: 900px;
+        display: none;
     }
-    FOOTER 
-    .info2-email{font-size: 140%;}
-    .info2-follow{font-size: 140%;}
-}
-
-@media screen and (max-width: 1382px){
-    img[alt$=icon]{height: 1.2em;}
-    /* INICIO */
-    .inicio{height: 5em;}
-    .inicio1, .inicio2{font-size: 22px; width: 22%;}
-    /* NAVEGACION*/ 
-    .navegacion{height: 7em;}
-    .nav1, .nav2{font-size: 22px;}
-    .contacto{border: 2px solid #1BB2CB;padding: 10px 10px;}
-    img[alt=logo-png]{height: 3.2em;}
-    /* HEADER */
-    .header{height: 35em;}
-    .header1, .header2{font-size: 16.5px;}
-    img[alt=exclamacion-icon]{left: 8px;height: 1.8em;}
-    /* SERVICIOS*/ 
-    .article{font-size: 110%;}
-    /* ESPECIALISTAS*/ 
-    .especialistas{height: 110vh;}
-    .profesionales h3{font-size: 150%; }
-    .profesionales p{font-size: 100%;}
-    .profesionales img{height: 60%;}
-}
-@media screen and (max-width:1370px){
-    .info1{font-size: 350%; }
-    .info2-email{font-size: 130%;}
-    .info2-follow{font-size: 130%;}
-}
-@media screen and (max-width:1322px){
-    .info1{font-size: 300%; }
-    [alt="imagen-footer"]{
-        height: 300%;
-        bottom: 30%;
-        left: 60%;  
-    }
-}
-
-@media screen and (max-width: 1265px){
-      /* INICIO */
-    .inicio1{width: 25%;}
-    /* HEADER */
-    .header{height: 32em;}
-    .header1, .header2{font-size: 15px;}
-    /* FORMULARIO*/ 
-    .contactanos{height: 68vh;}
-    .contactanos{height: 68vh;} */
-    /* FOOTER */
-    .info1{font-size: 300%; }
-    .info2-email{font-size: 120%;}
-    .info2-follow{font-size: 120%;}
-    .pie2{font-size: 110%;}
-}
-
-@media screen and (max-width: 1165px){
-    /* INICIO */
-    .inicio1, .inicio2{font-size: 20px;}
-     /* NAVEGACION */
-     .nav1, .nav2{font-size: 20px;}
-     .contacto{border: 2px solid #1BB2CB;padding: 10px 10px;}
-    /* HEADER */
-    .header{height: 32em;}
-    .header1, .header2{font-size: 14px;}
-    /* SERVICIOS*/ 
-    .servicios-header{font-size: 2em;}
-    /* ESPECIALISTAS */
-    .especialistas{height: 100vh;}
-    .esp1{font-size: 2em;}
-    /* CONTACTO */
-    .contactanos{height: 62vh;}
-    .contacto2{width: 60%;
-    }
-    /* FOOTER */
-    .info1{font-size: 200%; }
-    .info2-email{font-size: 100%;}
-    .info2-follow{font-size: 100%;}
-}
-
-@media screen and (max-width: 1065px){
-    /* NAVEGACION */
-    .nav2{width: 70%;}
-    /* INICIO */
-    .inicio1, .inicio2{font-size: 18px;}
-    /* HEADER */
-    .header{height: 28em;}
-    .header1, .header2{font-size: 12px;}
-    img[alt=exclamacion-icon]{left: 8px;  top: 20px;}
-    /* SERVICIOS*/ 
-    .servicios{height: 54em;}
-    .article{font-size: 105%;}
-    /* ESPECIALISTAS*/ 
-    .especialistas{height: 90vh;}
-    /* CONTACTO */
-    .contacto1{font-size: 2.2em;}
-    .contactanos{height: 56vh;}
-    .contacto2{width: 60%;
-        height: 55%; 
-    }
-    /* FOOTEEER */
-    .piedepagina{height: 55vh;}
-}
-
-@media screen and (max-width: 960px){
-    /* NAVEGACION */
-    .nav1,.nav2{margin: 0 2em;}
-    /* INICIO */
-    .inicio1,.inicio2{width: 60%;}
-    /* SERVICIOS */
-    .servicios-header, .esp1{font-size: 1.5em;}
-    .servicios-articles{ height: 38em;}
-    .servicios{height: 50em;}
-    .article{font-size: 98%;
-    }
-    /* ESPECIALISTAS */
-    .especialistas{height: 80vh;}
-    /* CONTACTO */
-    .contacto1{font-size: 1.8em;}
-    .contactanos{height: 51vh;}
-    .contacto2{width: 60%;
-        height: 60%; 
-    }
-    .formulario{font-size: 150%;}
-    /* FOOTEEER */
-    .piedepagina{height: 54vh;}
-    .pie1{height: 72%;}
-    .pie2{height: 28%;}
-}
-
-@media screen and (max-width:840px) {
     
-    /* SERVICIOS */
-    .servicios{height: 45em;}
-    .article{font-size: 94%;}
-    .article h3{ font-size: 112%;}
-    .servicios-articles{ height: 36em;}
-    /* ESPECIALISTAS */
-    .especialistas{height: 72vh;}
-    .profesionales h3{font-size: 120%; }
-    .profesionales p{font-size: 120%;}
-    /* CONTACTO */
-    .contacto1{font-size: 1.6em;}
-    .contactanos{height: 45vh;}
-    .formulario{font-size: 140%;}
-    /* FOOTEEER */
-    .piedepagina{height: 50vh;}
-    .pie1{width: 38%; margin: auto 6em;}
 }
-
-@media screen and (max-width: 790px){
-    /* INICIO */
-    .inicio{height: 4em; margin-top: 6em;}
-    .inicio1, .inicio2{font-size: 20px;}
-    /* NAVEGACION */
-    .navegacion{height: 6em;}
-    .nav1, .nav2{font-size: 20px;}
-    .nav1{width: 15%;}
-    img[alt=logo-png]{height: 2.5em;}
-    .contacto{border: 2px solid #1BB2CB;padding: 7px 7px;}
-    /* HEADER */
-    .header{height: 18em;}
-    .header1, .header2{font-size: 9.5px;}
-    img[alt=exclamacion-icon]{left: 5px;  top: 15px;}
-    /* SERVICIOS*/ 
-    .article{font-size: 90%;}
-    /* ESPECIALISTAS */
-    .profesionales h3{font-size: 90%; }
-    .profesionales p{font-size: 90%;}
-    /* CONTACTO */
-    .contactanos{height: 42vh;}
-    /* FOOTEEER */
-    .piedepagina{height: 46vh;}
-}
-
-@media screen and (max-width: 730px){
-    .inicio1,.inicio2, .nav1, .nav2{margin: 0 0.5em;}
-    /* INICIO */
-    .inicio{margin-top: 5em;}
-    .inicio1, .inicio2{font-size: 18px;}
-    /* NAVEGACION */
-    .navegacion{height: 5em;}
-    .contacto{border: 1.5px solid #1BB2CB;padding: 7px 7px;}
-    /* HEADER */
-    .header{height: 16em;}
-    .header1, .header2{font-size: 8px;}
-    img[alt=exclamacion-icon]{left: 6px;  top: 12px;}
-    /* SERVICIOS*/ 
-    .article{font-size: 84%;}
-    /* ESPECIALISTAS*/
-    .especialistas{height: 62vh;}
-    .servicios-header, .esp1{font-size: 1.2em;}
-    .servicios-articles{height: 36em;}
-    .article h3{ font-size: 100%;}
-    .servicios{height: 44em;}
-    .article{height: 46%;}
-    .servicios-articles img[alt^=servicio]{height: 3.8em;}
-    /* CONTACTO */
-    .contacto1{font-size: 1.6em;}
-    .contactanos{height: 38vh;}
-    /* FOOTEEER */
-    .info2{flex-direction: column; align-items: center;}
-    .info2-email{width: 80%;}
-    .info2-follow{width: 70%;}
-    .pie1{width: 36%;}
-}
-
-@media screen and (max-width:512px){
-    .nav1, .nav2{margin: 0 1em;}
-    .nav1{width: 10%;}
-    .nav2{ display: flex; flex-direction: column; justify-content: space-evenly;
-        font-weight: 500;font-size: 120%;width: 55%;}
-    .contacto{border: 2px solid #1BB2CB;padding: 5px 5px;}
-    img[alt=logo-png]{height: 2.5em;}
-    .navegacion{padding: auto 0; margin: 0; height: 10em;}
-
-    /* INICIO */
-    img[alt$=white-icon]{height: 1em; padding: 0 6px;}
-    .inicio{margin-top: 10em; height: 4em;flex-direction: column;justify-content: center; align-items: center; }
-    .inicio1, .inicio2{display: flex; font-size: 130%; width: 70%; margin: 0 1em; justify-content: center;}
-    .inicio2 p{font-size: 0.1px;}
-
-    /* HEADER */
-    .header{height: 25vh;}
-    .header1, .header2{width: 40%;font-size: 50%;font-weight: 200;margin: 0 1em;}
-    img[alt=exclamacion-icon]{left: 1px;top: 9px;}
-    img[alt*=encabezado]{height: 0.1px;}
-
-    /* SERVICIOS------------SERVICIOS-----------SERVICIOS */
-    .servicios{height: 170vh; margin: 0 2.5em;}
-    .servicios-header,.servicios-articles{margin: 0;}
-    .servicios-header{text-align: center;font-size: 1.3em;height: 30%; justify-content: center;}
-    .servicios-articles{flex-direction: column; flex-wrap: nowrap; height: 290%; width: 100%;}
-    .article{ height: 18%;width: 100%; font-size: 110%;}
-    .article h3{line-height: 120%; margin-bottom: 0.5em; font-size: 105%;}
-    .servicios-articles img[alt^=servicio]{height: 3em; margin-bottom: 0.5em;}  
-
-    /* ESPECIALISTAS----------ESPECIALISTAS------ESPECIALISTAS */
-    .especialistas{height: 100vh;padding: 0 30px;}
-    .esp1{font-size: 1.5em;height: 10em;}
-    .esp2{flex-direction: column;justify-content: space-evenly;height: 82%;}
-    .profesionales{height: 25%;}
-    .profesionales img{border-radius: 100%; height: 75%;}
-    .profesionales h3{font-size: 130%; }
-    .profesionales p{font-style: italic; font-size: 120%;}
-
-    /* CONTACTO----------------------CONTACTO-----------------CONTACTO */
-    .contactanos{height: 60vh;padding: 0 30px; background-color: #cd64a9}
-    .contacto1{font-size: 1.6em;width: 100%;}
-    .contacto2{ width: 90%;height: 50%;}
-    .formulario{font-size: 150%; border-bottom: 1.5px solid white;}
-    .nombre,.apellido{width: 46%; }
-    .enviar{width: 30%; border: 2px solid white;}
-    /* FOOTER---------------FOOTER-------------FOOTER */
-    .piedepagina{height: 40vh;}
-    .info1 img[alt="logo-footer"]{height: 25%; width: 100%; }
-    .pie1{ margin: auto 3em; height: 75%; width: 60%;}
-    .info1{font-size: 200%; height: 60%;}
-    .info2{height: 40%; width: 100%; flex-direction: column; justify-content: center;}
-    .info2-email, .info2-follow{justify-content: space-around; align-items: center; width: 100%;height: 40%;}
-    .info2-email p{ font-size: 20px;}
-    .info2-follow p{font-size: 20px; }
-    [alt="imagen-footer"]{ bottom: 10%;left: 70%;}
-    img[alt$=pink-icon]{height: 50%;}
-    .info2-follow img{ height: 25px;}
-}
-@media screen and (max-width:380px){
-    /* NAVEGACION */
-    .nav1, .nav2{margin: 0;}
-    .nav2{ font-size: 100%;}
-    .contacto{border: 1.6px solid #1BB2CB;}
-    .navegacion{padding: auto 0; margin: 0; height: 8em;}
-    /* INICIO */
-    .inicio{margin-top: 8em; align-items: center; }
-    .inicio2{ justify-content: center;}
-    .inicio2 p{font-size: 0.1px;}
-    /* HEADER */
-    .header{height: 20vh;}
-    .header1, .header2{font-size: 38%;}
-    img[alt*=encabezado]{height: 0.1px;}
-    /* SERVICIOS------------SERVICIOS-----------SERVICIOS */
-    .servicios{height: 180vh; padding: 0; justify-content: space-around; margin: 0 2em;}
-    .servicios-header{text-align: center;font-size: 1.3em;height: 25%; justify-content: center;}
-    .servicios-articles{flex-direction: column; flex-wrap: nowrap; height: 290%;}
-    .article{ height: 18%;width: 100%;}
-}
-
-

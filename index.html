@@ -5,18 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
     <link rel="shortcut icon" href="Img/svg/Logo.svg" type="image/x-icon">
     <title>Dental Kids</title>
+    <script src="js/javascript.js" defer></script>
 </head>
 <body>
-    <nav class="navegacion">
-
-        <a href="index.html" class="nav1">
+    <nav class="nav hola">
+        <a class="logo" href="index.html">
             <img src="Img/svg/SVGLogo_1.svg" alt="logo-png">
         </a>
-
-        <ul class="nav2">
+        <ul class="nav-ul" data-visible="false">
             <li>
                 <a class="nav-item"  href="#servicios">SERVICIOS</a>
             </li>
@@ -26,168 +25,164 @@
             </li>
             
             <li>
-                <a class="nav-item contacto" href="#contacto">CONTÁCTANOS</a>
+                <a class="nav-item blue-btn" href="#contacto">CONTÁCTANOS</a>
             </li>
-        </ul>    
+        </ul>
+        <img class="toggle" aria-expanded="false" src="/Img/Hamburguesita.png" alt="hamburguesita">  
     </nav>
 
-    <div class="inicio">
-        <div class="inicio1">
-            <img src="Img/svg/Icon-Mail.svg" alt="mail--white-icon">
-            <p class="p1">info@dentalkids.com</p>
-        </div>
-        
-       <div class="inicio2">
-           <p class="p2">SIGUENOS</p>
-           <a href="#">
-               <img src="Img/svg/Icon- Facebook.svg" alt="face-white-icon">
-            </a>
-           <a href="#">
-               <img src="Img/svg/Icon-Ig.svg" alt="ig-white-icon">
-            </a>
-           <a href="#">
-               <img src="Img/svg/Icon-Youtube.svg" alt="youtube-white-icon">
-            </a>
-       </div>
-    </div>
-
-    <header class="header">
-
-        <div class="header1">
+    <header>
+        <div class="barra">
+            <div class="barra-email">
+                <img src="Img/svg/Icon-Mail.svg" alt="mail--white-icon">
+                <p>info@dentalkids.com</p>
+            </div>
             
-            <h1 class="principal font">
-                <img src="Img/svg/icoExclamación.svg" alt="exclamacion-icon">Los <span class="font pink">odontologos favoritos</span> de los <span class="font yellow">peques</span>!</h1>
+           <div class="barra-rrss">
+               <p>SIGUENOS</p>
+               <a href="#">
+                   <img src="Img/svg/Icon- Facebook.svg" alt="face-white-icon">
+                </a>
+               <a href="#">
+                   <img src="Img/svg/Icon-Ig.svg" alt="ig-white-icon">
+                </a>
+               <a href="#">
+                   <img src="Img/svg/Icon-Youtube.svg" alt="youtube-white-icon">
+                </a>
+           </div>
         </div>
-        <img class="header2" src="Img/svg/Linea-header amarilla.svg" alt="linea-encabezado-yellow">
-        
-        
 
+        <div class="header"> 
+            <div class="title">
+                <h1><img src="Img/svg/icoExcla.svg" alt="exclamacion-icon"> <span>Los <span class="pink">odontologos favoritos</span> de los <span class="yellow">peques <img src="Img/svg/Linea-header amarilla.svg" alt="linea-encabezado-yellow"></span>!</span></h1>
+            </div>
+        </div>
     </header>
 
-    <main id="servicios" class="servicios">
+    <main>
+        <section id="servicios">
+            <h2>
+                <span>Nuestros <span class="bold">Servicios</span> Especializados</span> 
+                <img src="Img/svg/Linea-Servicios pink.svg" alt="linea-servicios-pink">
+            </h2>
 
-        <div class="servicios-header">
+            <div class="servicios-articles">
+                <article class="article">
+                    <img src="Img/svg/Icon-Servicio 1.svg" alt="servicio-1">
+                    <h3>SEDACIÓN INTRAVENOSA, <br>INHALADA Y ORAL</h3>
+                    <p>Más de 600 casos exitosos de sedación intravenosa, lo cual nos coloca a la vanguardia en el país y Latinoamérica como el equipo más experimentado en sedación odontológica pediátrica.</p>
+                </article>
+                
+                <article class="article">
+                    <img src="Img/svg/Icon-Servicio 4.svg" alt="servicio-4">
+                    <h3>PLANEACIÓN Y <br>DISEÑO DE SONRISA</h3>
+                    <p>Una buena imagen mejora la autoestima y seguridad del niño y el adolescente. Con la utilización de software moderno y mediante tratamientos de ortodoncia u ortopedia.</p>
+                </article>
+                
+                <article class="article">
+                    <img src="Img/svg/Icon-Servicio 2.svg" alt="servicio-2">
+                    <h3>ODONTOLOGÍA <br>LÁSER</h3>
+                    <p>Contamos con WATERLASE, el equipo láser más moderno para odontología con el cual realizamos de forma rápida y sencilla los procedimientos.</p>
+                </article>
+                
+                <article class="article">
+                    <img src="Img/svg/Icon-Servicio 3.svg" alt="servicio-3">
+                    <h3>PRIMERA CITA <br>ESPECIALIZADA</h3>
+                    <p>El primer contacto del niño con el ambiente odontológico genera una recordación que se mantendrá por mucho tiempo en ocasiones toda la vida.</p>
+                </article>
+                
+                
+                <article class="article">
+                    <img src="Img/svg/Icon-Servicio 5.svg" alt="servicio-5">
+                    <h3>ORTODONCIA PREVENTIVA <br>Y CORRECTIVA</h3>
+                    <p>A partir de cierta edad, los aparatos removibles no logran, el desplazamiento dental ni la corrección de problemas severos de alineamiento.</p>
+                </article>
+                
+                <article class="article">
+                    <img src="Img/svg/Icon-Servicio 6.svg" alt="servicio-6">
+                    <h3>ESPECIALISTAS EN PACIENTES <br> CON NECESIDADES ESPECIALES</h3>
+                    <p>El niño con necesidades especiales debe disponer de un programa odontológico preventivo integral.</p>
+                </article>
+            </div>
+        </section>
 
-            <h2>Nuestros <b>Servicios</b> Especializados</h2>
-            <img src="Img/svg/Linea-Servicios pink.svg" alt="linea-servicios-pink">
+        <section id="especialistas">
+            <header>
+                <h2>
+                    <span>Nuestros <span class="bold">Especialistas</span></span>
+                    <img src="Img/svg/Linea-Especialistas amarilla.svg" alt="linea-especialistas-yellow">
+                </h2>
+            </header>
 
-        </div>
+            <div class="profesionales">
+                <article>
+                    <img src="Img/bruno-rodrigues-279xIHymPYY-unsplash-2.jpg" alt="Odontopediatra">
+                    <h3>OD. JOSÉ RODRÍGUEZ</h3>
+                    <p>Odontopediatría</p>
+                </article>
+                
+                <article>
+                    <img src="Img/austin-distel-7bMdiIqz_J4-unsplash-2.jpg" alt="Ortodoncista">
+                    <h3>OD. KANE WATERS</h3>
+                    <p>Ortodoncia</p>
+                </article>
+                
+                <article>
+                    <img src="Img/brian-mercado-rm7rZYdl3rY-unsplash-2.jpg" alt="Ortopediatra">
+                    <h3>OD. ANA GONZALEZ</h3>
+                    <p>Ortopedia</p>
+                </article>
+            </div>
+        </section>
 
-        <div class="servicios-articles">
-            <article class="servicio1 article">
-                <img src="Img/svg/Icon-Servicio 1.svg" alt="servicio-1">
-                <h3>SEDACIÓN INTRAVENOSA, <br>INHALADA Y ORAL</h3>
-                <p>Más de 600 casos exitosos de sedación intravenosa, lo cual nos coloca a la vanguardia en el país y Latinoamérica como el equipo más experimentado en sedación odontológica pediátrica.</p>
-            </article>
-            
-            <article class="servicio2 article">
-                <img src="Img/svg/Icon-Servicio 2.svg" alt="servicio-2">
-                <h3>ODONTOLOGÍA <br>LÁSER</h3>
-                <p>Contamos con WATERLASE, el equipo láser más moderno para odontología con el cual realizamos de forma rápida y sencilla los procedimientos.</p>
-            </article>
-            
-            <article class="servicio3 article">
-                <img src="Img/svg/Icon-Servicio 3.svg" alt="servicio-3">
-                <h3>PRIMERA CITA <br>ESPECIALIZADA</h3>
-                <p>El primer contacto del niño con el ambiente odontológico genera una recordación que se mantendrá por mucho tiempo en ocasiones toda la vida.</p>
-            </article>
-            
-            <article class="servicio4 article">
-                <img src="Img/svg/Icon-Servicio 4.svg" alt="servicio-4">
-                <h3>PLANEACIÓN Y <br>DISEÑO DE SONRISA</h3>
-                <p>Una buena imagen mejora la autoestima y seguridad del niño y el adolescente. Con la utilización de software moderno y mediante tratamientos de ortodoncia u ortopedia.</p>
-            </article>
-            
-            <article class="servicio5 article">
-                <img src="Img/svg/Icon-Servicio 5.svg" alt="servicio-5">
-                <h3>ORTODONCIA PREVENTIVA <br>Y CORRECTIVA</h3>
-                <p>A partir de cierta edad, los aparatos removibles no logran, el desplazamiento dental ni la corrección de problemas severos de alineamiento.</p>
-            </article>
-            
-            <article class="servicio6 article">
-                <img src="Img/svg/Icon-Servicio 6.svg" alt="servicio-6">
-                <h3>ESPECIALISTAS EN PACIENTES <br> CON NECESIDADES ESPECIALES</h3>
-                <p>El niño con necesidades especiales debe disponer de un programa odontológico preventivo integral.</p>
-            </article>
-        </div>
+        <section id="contacto">
+            <h2>
+                <span class="font">Contáctanos</span>
+                <img src="Img/svg/Linea-Contactos blanca.svg" alt="linea-contacto-white">
+            </h2 >
+
+            <form>
+                <div>
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="text" placeholder="Apellido" required>
+                </div>
+                <input type="email" placeholder="Correo" required>
+                <input type="text" placeholder="Mensaje">
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
     </main>
 
-    <section id="especialistas" class="especialistas">
-        <div class="esp1">
-            <h2>Nuestros <b>Especialistas</b></h2>
-            <img src="Img/svg/Linea-Especialistas amarilla.svg" alt="linea-especialistas-yellow">
-        </div>
-
-        <div class="esp2">
-            <article class="prof1 profesionales">
-                <img src="Img/bruno-rodrigues-279xIHymPYY-unsplash-2.jpg" alt="Odontopediatra">
-                <h3>OD. JOSÉ RODRÍGUEZ</h3>
-                <p>Odontopediatría</p>
-            </article>
-            
-            <article class="prof2 profesionales">
-                <img src="Img/austin-distel-7bMdiIqz_J4-unsplash-2.jpg" alt="Ortodoncista">
-                <h3>OD. KANE WATERS</h3>
-                <p>Ortodoncia</p>
-            </article>
-            
-            <article class="prof3 profesionales">
-                <img src="Img/brian-mercado-rm7rZYdl3rY-unsplash-2.jpg" alt="Ortopediatra">
-                <h3>OD. ANA GONZALEZ</h3>
-                <p>Ortopedia</p>
-            </article>
-        </div>
-
-    </section>
-
-    <section id="contacto" class="contactanos">
-
-        <div class="contacto1">
-            <h2 class="font">Contactanos</h2>
-            <img src="Img/svg/Linea-Contactos blanca.svg" alt="linea-contacto-white">
-        </div >
-        <form class="contacto2">
-            <input class="formulario nombre" type="text" placeholder="Nombre" required>
-            <input class="formulario apellido" type="text" placeholder="Apellido" required>
-            <input class="formulario email" type="email" placeholder="Correo" required>
-            <input class="formulario mensaje" type="text" placeholder="Mensaje">
-            <input class="formulario enviar" type="submit" value="Enviar">
-        </form>
-
-    </section>
-
-    <footer class="piedepagina">
-        <div class="pie1">
-
-            <div class="info1">
+    <footer>
+        <div>
+            <div class="rrss">
                 <img src="Img/svg/Logo.svg" alt="logo-footer">
-                <p class="dental2">DENTAL <span class="font pink">KIDS</span></p>
-            </div>
+                <p>DENTAL <span class="font pink">KIDS</span></p>
 
-            <div class="info2">
-                <div class="info2-email">
-                    <img src="Img/svg/Icon-Mail pink.svg" alt="mail-pink-icon">
-                    <p class="info">info@dentalkids.com</p>
-                </div>
-                <div class="info2-follow">
-                    <p class="info follow2">Síguenos</p>
-                    <a href="#">
-                        <img src="Img/svg/Icon-Facebook pink.svg" alt="face-pink-icon">
-                    </a>
-                    <a href="#">
-                        <img src="Img/svg/Icon-Ig pink.svg" alt="ig-pink-icon">
-                    </a>
-                    <a href="#">
-                        <img src="Img/svg/Icon-Youtube pink.svg" alt="youtube-pink-icon">
-                    </a>
+                <div class="rrss--info">
+                    <div class="rrss--info-email">
+                        <img src="Img/svg/Icon-Mail pink.svg" alt="mail-pink-icon">
+                        <p>info@dentalkids.com</p>
+                    </div>
+                    <div class="rrss--info-follow">
+                        <p>Síguenos</p>
+                        <a href="#">
+                            <img src="Img/svg/Icon-Facebook pink.svg" alt="face-pink-icon">
+                        </a>
+                        <a href="#">
+                            <img src="Img/svg/Icon-Ig pink.svg" alt="ig-pink-icon">
+                        </a>
+                        <a href="#">
+                            <img src="Img/svg/Icon-Youtube pink.svg" alt="youtube-pink-icon">
+                        </a>
+                    </div>
                 </div>
             </div>
-
+            <img src="Img/svg/Imagen Footer.svg" alt="imagen-footer">
         </div>
 
-        <div class="pie2">
-            <img src="Img/svg/Imagen Footer.svg" alt="imagen-footer">
-            <p class="copyright">© 2021 STHER SALAZAR THEME</p>
+        <div class="copyright">
+            <p>© 2021 STHER SALAZAR THEME</p>
         </div>
     </footer>
 </body>

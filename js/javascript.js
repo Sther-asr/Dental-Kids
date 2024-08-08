@@ -7,10 +7,10 @@ navToggle.addEventListener('click', () => {
     if(visibility === "false"){
         primaryNav.setAttribute('data-visible', true);
         primaryNav.setAttribute('aria-expanded', true);
-        navToggle.setAttribute('src', "/Img/close-hamburguesa.png");
+        navToggle.setAttribute('src', "Img/close-hamburguesa.png");
     }else {
         primaryNav.setAttribute('data-visible', false);
         primaryNav.setAttribute('aria-expanded', false);
-        navToggle.setAttribute('src', "/Img/Hamburguesita.png");
+        navToggle.setAttribute('src', "Img/Hamburguesita.png");
     }
 })
